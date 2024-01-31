@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>150</y>
+      <width>177</width>
+      <height>205</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QToolBox" name="toolBox">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="page">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>175</width>
+          <height>67</height>
+         </rect>
+        </property>
+        <attribute name="label">
+         <string>Page 1</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="page_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>175</width>
+          <height>67</height>
+         </rect>
+        </property>
+        <attribute name="label">
+         <string>Page 2</string>
+        </attribute>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCommandLinkButton" name="commandLinkButton">
+       <property name="text">
+        <string>CommandLinkButton</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string>RadioButton</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMy_app">
+    <property name="title">
+     <string>My app</string>
+    </property>
+    <addaction name="actionan_option"/>
+    <addaction name="actioni_need"/>
+    <addaction name="actionJe_suis_pardu"/>
+    <addaction name="actionQt_c_de_la_merdde"/>
+    <addaction name="separator"/>
+    <addaction name="actionok_2"/>
+    <addaction name="actionnon"/>
+   </widget>
+   <widget class="QMenu" name="menunew">
+    <property name="title">
+     <string>new</string>
+    </property>
+    <addaction name="actionok"/>
+   </widget>
+   <addaction name="menuMy_app"/>
+   <addaction name="menunew"/>
+  </widget>
+  <action name="actionan_option">
+   <property name="text">
+    <string>an option</string>
+   </property>
+  </action>
+  <action name="actioni_need">
+   <property name="text">
+    <string>i need</string>
+   </property>
+  </action>
+  <action name="actionok">
+   <property name="text">
+    <string>ok</string>
+   </property>
+  </action>
+  <action name="actionJe_suis_pardu">
+   <property name="text">
+    <string>Je suis perdu</string>
+   </property>
+  </action>
+  <action name="actionQt_c_de_la_merdde">
+   <property name="text">
+    <string>Qt c de la merde</string>
+   </property>
+  </action>
+  <action name="actionok_2">
+   <property name="text">
+    <string>ok</string>
+   </property>
+  </action>
+  <action name="actionnon">
+   <property name="text">
+    <string>non</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
