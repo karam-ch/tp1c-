@@ -2,6 +2,7 @@
 #define CONNEXION_H
 
 #include <QDialog>
+#include "file.h"
 
 namespace Ui {
 class Connexion;
@@ -13,6 +14,7 @@ class Connexion : public QDialog
 
 public:
     explicit Connexion(QWidget *parent = nullptr);
+    Connexion(file*);
     ~Connexion();
 
 private slots:
@@ -22,7 +24,7 @@ private slots:
 
 private:
     Ui::Connexion *ui;
-    // void ;
+    file *f;
 };
 
 #endif // CONNEXION_H

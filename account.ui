@@ -36,10 +36,10 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="userEdit"/>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="passwordEdit"/>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
@@ -56,7 +56,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_3"/>
+      <widget class="QLineEdit" name="passwordEditconfirm"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
@@ -68,20 +68,20 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="createButton">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>176</x>
      <y>180</y>
-     <width>87</width>
+     <width>111</width>
      <height>26</height>
     </rect>
    </property>
    <property name="text">
-    <string>Connect</string>
+    <string>Create account</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="signInButton">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -91,7 +91,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Cancel</string>
+    <string>Sign in</string>
    </property>
   </widget>
  </widget>

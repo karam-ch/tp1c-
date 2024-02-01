@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     account.cpp \
+    appexception.cpp \
     connexion.cpp \
     file.cpp \
     main.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     account.h \
+    appexception.h \
     connexion.h \
     file.h \
     mainwindow.h \

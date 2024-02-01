@@ -1,13 +1,23 @@
+#include <QApplication>
 #include "mainwindow.h"
 #include "connexion.h"
-#include <QApplication>
+#include "file.h"
+#include "account.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    file file;
+    file.read();
+    Account account;
+    Connexion connxion;
     MainWindow w;
-    Connexion c;
-    c.show();
+    if (file.isEmpty()) {
+        account.show();
+    }
+    else {
+        connxion.show();
+    }
     // w.show();
     return a.exec();
 }

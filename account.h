@@ -15,6 +15,13 @@ public:
     explicit Account(QWidget *parent = nullptr);
     ~Account();
 
+private slots:
+
+
+    void on_signInButton_clicked();
+
+    void on_createButton_clicked();
+
 private:
     Ui::Account *ui;
 };

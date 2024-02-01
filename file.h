@@ -2,6 +2,7 @@
 #define FILE_H
 #include <QVector>
 #include "user.h"
+#include <QJsonArray>
 
 class file
 {
@@ -11,10 +12,11 @@ public:
     void write();
     void addUser(User user);
     QString getPasswordWithName(QString name);
-
+    bool isEmpty();
 
 private:
-     QVector<User> users;
+    QVector<User> users;
+    QJsonArray toJson();
 };
 
 #endif // FILE_H
