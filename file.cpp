@@ -8,20 +8,30 @@
 #include <iostream>
 
 file::file() {
-
+    this->users = QVector<User>();
 }
 
 void file::addUser(User user) { //double user !!!
-    this->users.append(user);
+    this->users.push_back(user);
+
 }
 
 QString file::getPasswordWithName(QString name) {
-    QVectorIterator<User> Vi(this->users);
-    while (Vi.hasNext()) {
-        User u = Vi.next();
-        if (u.getName() == name)
-            return u.getPassword();
+std::cout << "users : " << this->users.size() << std::endl;
+    for (int i = 0 ; i < this->users.size(); i++)
+    {
+        std::cout << "i " << this->users[i].getName().toStdString() << std::endl;
+        if (this->users[i].getName() == name) {
+            return this->users[i].getPassword();
+        }
     }
+
+    // QVectorIterator<User> Vi(this->users);
+    // while (Vi.hasNext()) {
+    //     User u = Vi.next();
+    //     if (u.getName() == name)
+    //         return u.getPassword();
+    // }
     return "";
 }
 
@@ -67,11 +77,12 @@ void file::read() {
     QTextStream in(&file);
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     QJsonArray A = doc.array();
+    std::cout << "A : " << A.size() << std::endl;
     for (int i = 0 ; i < A.size() ; i++)
     {
         User u;
         u.setName(A[i].toObject().value("name").toString());
-        u.setName(A[i].toObject().value("password").toString());
+        u.setPassword(A[i].toObject().value("password").toString());
         this->addUser(u);
     }
 

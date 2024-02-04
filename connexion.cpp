@@ -4,16 +4,15 @@
 #include "file.h"
 // #include <iostream>
 #include <QMessageBox>
+#include <QCryptographicHash>
 
 
-Connexion::Connexion(QWidget *parent)
+
+Connexion::Connexion(file *f, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Connexion)
 {
     ui->setupUi(this);
-}
-
-Connexion::Connexion(file *f){
     this->f = f;
 }
 
@@ -41,13 +40,13 @@ void Connexion::on_connectButton_clicked()
             tr("Connexion"),
             tr("Password empty") );
     }
-    else if (f->getPasswordWithName(ui->usernameLineEdit->text()) == ui->passwordLineEdit->text()) {
+    else if (this->f->getPasswordWithName(ui->usernameLineEdit->text()) == QString::fromUtf8(QCryptographicHash::hash(ui->passwordLineEdit->text().toUtf8(), QCryptographicHash::Sha512))) {
         QMessageBox::information(
             this,
             tr("Connexion"),
             tr("Connected") );
-            this->hide();
-        Account *a = new Account;
+        this->hide();
+        Account *a = new Account(this->f);
         a->show();
     }
     else {
@@ -55,7 +54,7 @@ void Connexion::on_connectButton_clicked()
         QMessageBox::warning(
             this,
             tr("Connexion"),
-            tr(f->getPasswordWithName(ui->usernameLineEdit->text()).toStdString().c_str()) );
+            tr("User name or password incorrect") );
     }
 }
 

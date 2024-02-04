@@ -13,8 +13,7 @@ class Connexion : public QDialog
     Q_OBJECT
 
 public:
-    explicit Connexion(QWidget *parent = nullptr);
-    Connexion(file*);
+    explicit Connexion(file* f, QWidget *parent = nullptr);
     ~Connexion();
 
 private slots:
