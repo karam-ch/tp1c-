@@ -1,5 +1,6 @@
 #ifndef PROFIL_H
 #define PROFIL_H
+#include <QString>
 
 class Profil
 {
@@ -8,7 +9,8 @@ public:
 
 
 private:
-    int BDD;  //Add class BDD
+    QString name;
+    int DB;  //Add class BDD
 };
 
 #endif // PROFIL_H

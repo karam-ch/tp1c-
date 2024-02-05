@@ -11,7 +11,7 @@ public:
     void read();
     void write();
     void addUser(User user);
-    QString getPasswordWithName(QString name);
+    User getUserWithName(QString name);
     bool isEmpty();
 
 private:

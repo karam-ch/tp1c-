@@ -1,7 +1,8 @@
 #include "connexion.h"
 #include "ui_connexion.h"
-#include "account.h"
+// #include "account.h"
 #include "file.h"
+#include "mainwindow.h"
 // #include <iostream>
 #include <QMessageBox>
 #include <QCryptographicHash>
@@ -23,10 +24,6 @@ Connexion::~Connexion()
 
 void Connexion::on_connectButton_clicked()
 {
-
-    User *u =new User;
-    u->setName("toto");
-    u->setPassword("tata");
     //file.read();
     if (ui->usernameLineEdit->text() == "") {
         QMessageBox::warning(
@@ -40,21 +37,25 @@ void Connexion::on_connectButton_clicked()
             tr("Connexion"),
             tr("Password empty") );
     }
-    else if (this->f->getPasswordWithName(ui->usernameLineEdit->text()) == QString::fromUtf8(QCryptographicHash::hash(ui->passwordLineEdit->text().toUtf8(), QCryptographicHash::Sha512))) {
-        QMessageBox::information(
-            this,
-            tr("Connexion"),
-            tr("Connected") );
-        this->hide();
-        Account *a = new Account(this->f);
-        a->show();
-    }
     else {
+        User u = this->f->getUserWithName(ui->usernameLineEdit->text());
+        if (u.getPassword() == QString::fromUtf8(QCryptographicHash::hash(ui->passwordLineEdit->text().toUtf8(), QCryptographicHash::Sha512))) {
+            QMessageBox::information(
+                this,
+                tr("Connexion"),
+                tr("Connected") );
+            MainWindow* w = new MainWindow(u);
+            w->show();
+            this->hide();
+        }
+        else {
 
-        QMessageBox::warning(
-            this,
-            tr("Connexion"),
-            tr("User name or password incorrect") );
+            QMessageBox::warning(
+                this,
+                tr("Connexion"),
+                tr("User name or password incorrect") );
+        }
     }
+
 }
 

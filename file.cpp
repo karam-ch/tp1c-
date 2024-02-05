@@ -16,13 +16,13 @@ void file::addUser(User user) { //double user !!!
 
 }
 
-QString file::getPasswordWithName(QString name) {
+User file::getUserWithName(QString name) {
 std::cout << "users : " << this->users.size() << std::endl;
     for (int i = 0 ; i < this->users.size(); i++)
     {
         std::cout << "i " << this->users[i].getName().toStdString() << std::endl;
         if (this->users[i].getName() == name) {
-            return this->users[i].getPassword();
+            return this->users[i];
         }
     }
 
@@ -32,7 +32,7 @@ std::cout << "users : " << this->users.size() << std::endl;
     //     if (u.getName() == name)
     //         return u.getPassword();
     // }
-    return "";
+    return User();
 }
 
 void file::write() {
@@ -63,6 +63,7 @@ QJsonArray file::toJson() {
         QJsonObject ju;
         ju.insert("name", u.getName());
         ju.insert("password", u.getPassword());
+        ju.insert("admin", QString::number(u.getAdmin()));
         content.push_back(ju);
     }
     return content;
@@ -83,6 +84,7 @@ void file::read() {
         User u;
         u.setName(A[i].toObject().value("name").toString());
         u.setPassword(A[i].toObject().value("password").toString());
+        u.setAdmin(A[i].toObject().value("Admin").toBool());
         this->addUser(u);
     }
 

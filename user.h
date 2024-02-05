@@ -11,15 +11,18 @@ public:
     const QString getName();
     const QString getPassword();
     const QVector <Profil> getProfils();
+    bool getAdmin();
     void setName(QString name);
     void setPassword(QString password);
     void addProfils(Profil profil);
+    void setAdmin(bool admin);
     // void removeProfil();
 
 private:
     QString name;
     QString password;
     QVector <Profil> Profils;
+    bool admin;
 };
 
 

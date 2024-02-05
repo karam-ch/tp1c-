@@ -48,6 +48,7 @@ void Account::on_createButton_clicked()
         User u;
         u.setName(ui->userEdit->text());
         u.setPassword(QString::fromUtf8(QCryptographicHash::hash(ui->passwordEdit->text().toUtf8(), QCryptographicHash::Sha512)));
+        u.setAdmin(ui->adminCheckBox->isChecked());
         this->f->addUser(u);
         this->f->write();
     }

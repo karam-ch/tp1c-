@@ -6,31 +6,82 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
+    <width>791</width>
     <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>331</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Current profil :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>Select your profil</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>80</y>
+      <width>711</width>
+      <height>261</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>802</width>
+     <width>791</width>
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuProfils">
+   <widget class="QMenu" name="menuAdministration">
     <property name="title">
-     <string>Profils</string>
+     <string>Administration</string>
     </property>
+    <addaction name="actionCreate_account"/>
+    <addaction name="actionProfils"/>
    </widget>
-   <addaction name="menuProfils"/>
+   <addaction name="menuAdministration"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionCreate_account">
+   <property name="text">
+    <string>Accounts</string>
+   </property>
+  </action>
+  <action name="actionProfils">
+   <property name="text">
+    <string>Profils</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
