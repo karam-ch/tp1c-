@@ -2,7 +2,7 @@
 #define ACCOUNT_H
 
 #include <QDialog>
-#include "file.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class Account;
@@ -13,7 +13,7 @@ class Account : public QDialog
     Q_OBJECT
 
 public:
-    explicit Account(file *f,QWidget *parent = nullptr);
+    explicit Account(MainWindow *w,QWidget *parent = nullptr);
     ~Account();
 
 private slots:
@@ -25,7 +25,7 @@ private slots:
 
 private:
     Ui::Account *ui;
-    file *f;
+    MainWindow *w;
 };
 
 #endif // ACCOUNT_H

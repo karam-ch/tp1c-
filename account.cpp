@@ -6,12 +6,16 @@
 #include <QMessageBox>
 #include <QCryptographicHash>
 
-Account::Account(file *f, QWidget *parent)
+Account::Account(MainWindow *w, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Account)
 {
     ui->setupUi(this);
-    this->f = f;
+    this->w = w;
+    if (w->getFile()->isEmpty()){
+        ui->adminCheckBox->setChecked(true);
+        ui->adminCheckBox->setDisabled(true);
+    }
 }
 
 Account::~Account()
@@ -21,9 +25,8 @@ Account::~Account()
 
 void Account::on_signInButton_clicked()
 {
-    this->hide();
-    Connexion *c = new Connexion(this->f);
-    c->show();
+    this->w->show();
+    this->close();
 }
 
 void Account::on_createButton_clicked()
@@ -40,7 +43,7 @@ void Account::on_createButton_clicked()
             tr("Account"),
             tr("Password empty") );
     }
-    else if (ui->passwordEdit->text() == ui->passwordEditconfirm->text()) {
+    else if (ui->passwordEdit->text() == ui->passwordConfirmEdit->text()) {
         QMessageBox::information(
             this,
             tr("Account"),
@@ -49,8 +52,10 @@ void Account::on_createButton_clicked()
         u.setName(ui->userEdit->text());
         u.setPassword(QString::fromUtf8(QCryptographicHash::hash(ui->passwordEdit->text().toUtf8(), QCryptographicHash::Sha512)));
         u.setAdmin(ui->adminCheckBox->isChecked());
-        this->f->addUser(u);
-        this->f->write();
+        this->hide();
+        this->w->getFile()->addUser(u);
+        this->w->getFile()->write();
+        this->w->show();
     }
     else {
         QMessageBox::warning(

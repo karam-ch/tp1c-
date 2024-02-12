@@ -5,22 +5,25 @@
 #include <QJsonArray>
 #include <QFile>
 #include <QTextStream>
+#include <QMessageBox>
+#include <QObject>
 #include <iostream>
 
-file::file() {
+
+File::File() {
     this->users = QVector<User>();
 }
 
-void file::addUser(User user) { //double user !!!
+void File::addUser(User user) { //double user !!!
     this->users.push_back(user);
 
 }
 
-User file::getUserWithName(QString name) {
-std::cout << "users : " << this->users.size() << std::endl;
+User File::getUserWithName(QString name) {
+// std::cout << "users : " << this->users.size() << std::endl;
     for (int i = 0 ; i < this->users.size(); i++)
     {
-        std::cout << "i " << this->users[i].getName().toStdString() << std::endl;
+        // std::cout << "i " << this->users[i].getName().toStdString() << std::endl;
         if (this->users[i].getName() == name) {
             return this->users[i];
         }
@@ -35,7 +38,7 @@ std::cout << "users : " << this->users.size() << std::endl;
     return User();
 }
 
-void file::write() {
+int File::write() {
     QJsonArray content = toJson();
     //content.insert()
     QJsonDocument document;
@@ -51,11 +54,12 @@ void file::write() {
     }
     else
     {
-        std::cout << "file open failed: " << std::endl;
+        return 1;
     }
+    return 0;
 }
 
-QJsonArray file::toJson() {
+QJsonArray File::toJson() {
     QJsonArray content;
     QVectorIterator<User> Vi(this->users);
     while (Vi.hasNext()) {
@@ -70,11 +74,11 @@ QJsonArray file::toJson() {
 }
 
 
-void file::read() {
+int File::read() {
 
     QFile file( "/home/chris/app.json" );
     if (!file.open(QFile::ReadOnly | QFile::Text))
-        return ;
+        return 1;
     QTextStream in(&file);
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     QJsonArray A = doc.array();
@@ -84,13 +88,12 @@ void file::read() {
         User u;
         u.setName(A[i].toObject().value("name").toString());
         u.setPassword(A[i].toObject().value("password").toString());
-        u.setAdmin(A[i].toObject().value("Admin").toBool());
+        u.setAdmin(A[i].toObject().value("admin").toString().toInt());
         this->addUser(u);
     }
-
-    // std::cout << s.toStdString();
+    return 0;
 }
 
-bool file::isEmpty() {
+bool File::isEmpty() {
     return this->users.isEmpty();
 }

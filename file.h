@@ -1,15 +1,17 @@
 #ifndef FILE_H
 #define FILE_H
+
 #include <QVector>
 #include "user.h"
 #include <QJsonArray>
+#include <QDialog>
 
-class file
+class File
 {
 public:
-    file();
-    void read();
-    void write();
+    File();
+    int read();
+    int write();
     void addUser(User user);
     User getUserWithName(QString name);
     bool isEmpty();

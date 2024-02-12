@@ -73,6 +73,9 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreate_account">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Accounts</string>
    </property>

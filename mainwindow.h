@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "user.h"
+#include "file.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -15,11 +16,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(User u, QWidget *parent = nullptr);
+    MainWindow(File *f, QWidget *parent = nullptr);
     ~MainWindow();
+    File *getFile();
+    void setUser(User u);
+
+private slots:
+    void on_actionCreate_account_triggered();
 
 private:
     Ui::MainWindow *ui;
     User u;
+    File *f;
 };
 #endif // MAINWINDOW_H
