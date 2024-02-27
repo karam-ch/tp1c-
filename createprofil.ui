@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateProfil</class>
+ <widget class="QDialog" name="CreateProfil">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>368</width>
+    <height>197</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Create profils</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>0</y>
+     <width>301</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Profils</string>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>281</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Name :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>DB :</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLineEdit" name="nameEdit"/>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="dbSpinBox"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="createButton">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>140</y>
+     <width>101</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create profil</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>140</y>
+     <width>87</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

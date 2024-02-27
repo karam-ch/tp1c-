@@ -20,9 +20,15 @@ public:
     ~MainWindow();
     File *getFile();
     void setUser(User u);
+    void showEvent(QShowEvent* event);
+    QString getNameUser();
 
 private slots:
     void on_actionCreate_account_triggered();
+
+    void on_actionSign_out_triggered();
+
+    void on_actionProfils_triggered();
 
 private:
     Ui::MainWindow *ui;

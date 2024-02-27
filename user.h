@@ -8,15 +8,18 @@ class User
 {
 public:
     User();
-    const QString getName();
-    const QString getPassword();
-    const QVector <Profil> getProfils();
+    QString getName();
+    QString getPassword();
+    QVector <Profil> getProfils();
     bool getAdmin();
     void setName(QString name);
     void setPassword(QString password);
     void addProfils(Profil profil);
     void setAdmin(bool admin);
-    // void removeProfil();
+    void clear();
+    void removeProfil(QString s);
+    bool profilExist(QString s);
+
 
 private:
     QString name;

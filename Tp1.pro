@@ -10,27 +10,34 @@ CONFIG += c++17
 
 SOURCES += \
     account.cpp \
-    appexception.cpp \
     connexion.cpp \
+    createprofil.cpp \
     file.cpp \
     main.cpp \
     mainwindow.cpp \
+    manageaccount.cpp \
+    manageprofils.cpp \
     profil.cpp \
     user.cpp
 
 HEADERS += \
     account.h \
-    appexception.h \
     connexion.h \
+    createprofil.h \
     file.h \
     mainwindow.h \
+    manageaccount.h \
+    manageprofils.h \
     profil.h \
     user.h
 
 FORMS += \
     account.ui \
     connexion.ui \
-    mainwindow.ui
+    createprofil.ui \
+    mainwindow.ui \
+    manageaccount.ui \
+    manageprofils.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

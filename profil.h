@@ -6,11 +6,14 @@ class Profil
 {
 public:
     Profil();
-
+    QString getName();
+    int getDb();
+    void setName(QString name);
+    void setDb(int db);
 
 private:
     QString name;
-    int DB;  //Add class BDD
+    int Db;  //Add class Db currently a placeholder
 };
 
 #endif // PROFIL_H

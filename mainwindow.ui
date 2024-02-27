@@ -68,6 +68,7 @@
     </property>
     <addaction name="actionCreate_account"/>
     <addaction name="actionProfils"/>
+    <addaction name="actionSign_out"/>
    </widget>
    <addaction name="menuAdministration"/>
   </widget>
@@ -83,6 +84,11 @@
   <action name="actionProfils">
    <property name="text">
     <string>Profils</string>
+   </property>
+  </action>
+  <action name="actionSign_out">
+   <property name="text">
+    <string>Sign out</string>
    </property>
   </action>
  </widget>

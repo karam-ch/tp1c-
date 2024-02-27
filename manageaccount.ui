@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ManageAccount</class>
+ <widget class="QDialog" name="ManageAccount">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>686</width>
+    <height>401</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manage account</string>
+  </property>
+  <widget class="QComboBox" name="accountCombo">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>591</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Choose Account</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="RemoveButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>290</y>
+     <width>121</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Remove account</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>60</y>
+     <width>92</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Admin</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>90</y>
+     <width>261</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>User profils</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QListWidget" name="userList">
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>290</y>
+     <width>161</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Return to main menu</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="createAccountButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>290</y>
+     <width>121</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create account</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>90</y>
+     <width>261</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Available profils</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QListWidget" name="availableList">
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="toUserButton">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>150</y>
+     <width>31</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="toProfilsButton">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>200</y>
+     <width>31</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Rm</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

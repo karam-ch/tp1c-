@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ManageProfils</class>
+ <widget class="QDialog" name="ManageProfils">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>714</width>
+    <height>247</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manage profils</string>
+  </property>
+  <widget class="QComboBox" name="profilBox">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>50</y>
+     <width>501</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>-Choose profil-</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="createProfilButton">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>100</y>
+     <width>131</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create new profil</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="removeButton">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>100</y>
+     <width>131</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Remove profil</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>160</y>
+     <width>161</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Return to main menu</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

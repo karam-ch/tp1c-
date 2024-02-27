@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "manageaccount.h"
 
 namespace Ui {
 class Account;
@@ -14,10 +15,10 @@ class Account : public QDialog
 
 public:
     explicit Account(MainWindow *w,QWidget *parent = nullptr);
+    explicit Account(ManageAccount *ma,QWidget *parent = nullptr);
     ~Account();
 
 private slots:
-
 
     void on_signInButton_clicked();
 
@@ -26,6 +27,8 @@ private slots:
 private:
     Ui::Account *ui;
     MainWindow *w;
+    ManageAccount *ma;
+    File *f;
 };
 
 #endif // ACCOUNT_H
