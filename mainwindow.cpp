@@ -8,7 +8,7 @@ MainWindow::MainWindow(File *f, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    this->setWindowTitle("Database interface");
+    // this->setWindowTitle("Database interface");
     ui->setupUi(this);
 
     this->f = f;

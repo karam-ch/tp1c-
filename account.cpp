@@ -80,11 +80,11 @@ void Account::on_createButton_clicked()
         u.setName(ui->userEdit->text());
         u.setPassword(QString::fromUtf8(QCryptographicHash::hash(ui->passwordEdit->text().toUtf8(), QCryptographicHash::Sha512)));
         u.setAdmin(ui->adminCheckBox->isChecked());
-        f->addUser(u);
+
         if (f->isEmpty()) {
             this->w->setUser(u);
         }
-
+        f->addUser(u);
         if (f->write() == 1) {
             QMessageBox::warning(
                 this,

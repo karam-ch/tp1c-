@@ -65,52 +65,45 @@ File * ManageAccount::getFile() {
 
 void ManageAccount::on_RemoveButton_clicked()
 {
-    if ( ui->availableList->currentRow() == -1 ) {
+
+    if (this->w->getNameUser() == ui->accountCombo->currentText()) {
         QMessageBox::warning(
             this,
             tr("Manage account"),
-            tr("No profil selected"));
+            tr("can't remove account, it's yours !!!"));
+    }
+    else if (this->w->getFile()->numberAdmin() <= 1 && this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getAdmin() == 1) {
+        QMessageBox::warning(
+            this,
+            tr("Manage account"),
+            tr("can't remove account no admin"));
     }
     else {
-        if (this->w->getNameUser() == ui->accountCombo->currentText()) {
-            QMessageBox::warning(
-                this,
-                tr("Manage account"),
-                tr("can't remove account it's you"));
-        }
-        else if (this->w->getFile()->numberAdmin() <= 1 && this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getAdmin() == 1) {
-            QMessageBox::warning(
-                this,
-                tr("Manage account"),
-                tr("can't remove account no admin"));
-        }
-        else {
-            this->w->getFile()->removeUser(ui->accountCombo->currentText());
-        }
+        this->w->getFile()->removeUser(ui->accountCombo->currentText());
+    }
 
         /** **/
-        ui->checkBox->setChecked(this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getAdmin());
-        if (this->w->getFile()->numberAdmin() <= 1 && this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getAdmin() == 1) {
-            ui->checkBox->setDisabled(true);
-        }
-        else {
-            ui->checkBox->setDisabled(false);
-        }
+    ui->checkBox->setChecked(this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getAdmin());
+    if (this->w->getFile()->numberAdmin() <= 1 && this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getAdmin() == 1) {
+        ui->checkBox->setDisabled(true);
+    }
+    else {
+        ui->checkBox->setDisabled(false);
+    }
 
-        ui->accountCombo->clear();
-        for (unsigned int i = 0; i < this->w->getFile()->getNumberUser(); i++) {
-            ui->accountCombo->addItem(this->w->getFile()->getUsersWithIndex(i).getName());
-        }
+    ui->accountCombo->clear();
+    for (unsigned int i = 0; i < this->w->getFile()->getNumberUser(); i++) {
+        ui->accountCombo->addItem(this->w->getFile()->getUsersWithIndex(i).getName());
+    }
 
-        ui->availableList->clear();
-        for (unsigned int i = 0; i < this->w->getFile()->getNumberProfil(); i++) {
-            ui->availableList->addItem(this->w->getFile()->getProfilsWithIndex(i).getName());
-        }
+    ui->availableList->clear();
+    for (unsigned int i = 0; i < this->w->getFile()->getNumberProfil(); i++) {
+        ui->availableList->addItem(this->w->getFile()->getProfilsWithIndex(i).getName());
+    }
 
-        ui->userList->clear();
-        for (unsigned int i = 0; i < this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils().size() ; i++) {
-            ui->userList->addItem(this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils()[i].getName());
-        }
+    ui->userList->clear();
+    for (unsigned int i = 0; i < this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils().size() ; i++) {
+        ui->userList->addItem(this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils()[i].getName());
     }
 }
 
@@ -166,10 +159,18 @@ void ManageAccount::on_checkBox_stateChanged(int arg1) {
 /** Only remove profil of a user and update interface **/
 void ManageAccount::on_toProfilsButton_clicked()
 {
-    this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->removeProfil(ui->userList->currentItem()->text());
-    ui->userList->clear();
-    for (unsigned int i = 0; i < this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils().size() ; i++) {
-        ui->userList->addItem(this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils()[i].getName());
+    if ( ui->availableList->currentRow() == -1 ) {
+        QMessageBox::warning(
+            this,
+            tr("Manage account"),
+            tr("No profil selected"));
+    }
+    else {
+        this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->removeProfil(ui->userList->currentItem()->text());
+        ui->userList->clear();
+        for (unsigned int i = 0; i < this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils().size() ; i++) {
+            ui->userList->addItem(this->w->getFile()->getUserWithName(ui->accountCombo->currentText())->getProfils()[i].getName());
+        }
     }
 }
 
